@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Content Generator | Dark Red UI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+    <div class="container">
+        <header class="main-header">
+            <div class="header-content">
+                <h1 class="logo">
+                    <span class="icon">🔥</span>
+                    <span class="text">Code Content Generator</span>
+                </h1>
+                <p class="subtitle">AI-Powered Coding Problem Explanations</p>
+            </div>
+            <div class="header-decoration"></div>
+        </header>
+        
+        <main>
+            <section class="input-section">
+                <div class="section-card">
+                    <div class="toggle-group">
+                        <button class="toggle-btn active" data-type="url">
+                            <span class="btn-icon">🔗</span>
+                            <span>URL</span>
+                        </button>
+                        <button class="toggle-btn" data-type="text">
+                            <span class="btn-icon">📝</span>
+                            <span>Paste Text</span>
+                        </button>
+                    </div>
+                    
+                    <div class="input-container" id="url-input">
+                        <label for="problem-url">Problem URL</label>
+                        <input 
+                            type="text" 
+                            placeholder="https://leetcode.com/problems/two-sum/" 
+                            id="problem-url"
+                            class="input-field">
+                        <p class="input-hint">⚠️ <strong>Note:</strong> LeetCode may block URL access. If it fails, use "Paste Text" mode!</p>
+                    </div>
+                    
+                    <div class="input-container hidden" id="text-input">
+                        <label for="problem-text">Problem Description</label>
+                        <textarea 
+                            rows="12" 
+                            placeholder="Paste your coding problem here..." 
+                            id="problem-text"
+                            class="input-field"></textarea>
+                        <p class="input-hint">Paste the complete problem description</p>
+                    </div>
+                    
+                    <button class="generate-btn" id="generate-btn">
+                        <span class="btn-glow"></span>
+                        <span class="btn-text">Generate Explanation</span>
+                        <span class="btn-icon-right">⚡</span>
+                    </button>
+                </div>
+            </section>
+            
+            <div class="loading" id="loading" style="display:none;">
+                <div class="loading-content">
+                    <div class="spinner"></div>
+                    <p class="loading-title">Analyzing problem...</p>
+                    <div class="progress-steps">
+                        <div class="step" id="step-concepts">
+                            <span class="step-icon">🧠</span>
+                            <span class="step-text">Extracting concepts...</span>
+                        </div>
+                        <div class="step" id="step-solutions">
+                            <span class="step-icon">💡</span>
+                            <span class="step-text">Generating solutions...</span>
+                        </div>
+                        <div class="step" id="step-pitfalls">
+                            <span class="step-icon">⚠️</span>
+                            <span class="step-text">Identifying pitfalls...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <section class="output-container" id="output" style="display:none;">
+                <!-- Dynamically populated via renderer.js -->
+            </section>
+        </main>
+        
+        <footer class="main-footer">
+            <p>Powered by HuggingFace 🤗 | Optimized for RTX 3050</p>
+        </footer>
+    </div>
+    
+    <script src="js/utils.js"></script>
+    <script src="js/renderer.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
